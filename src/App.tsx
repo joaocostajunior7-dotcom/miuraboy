@@ -5,8 +5,11 @@ import PartsGallery from './components/PartsGallery'
 import ConsumptionMonitor from './components/ConsumptionMonitor'
 import GasStationRating from './components/GasStationRating'
 import Navigation from './components/Navigation'
+import TelegramConnect from './components/TelegramConnect'
+import AlertReporter from './components/AlertReporter'
+import AlertsMap from './components/AlertsMap'
 
-type Tab = 'financial' | 'parts' | 'consumption' | 'stations'
+type Tab = 'financial' | 'parts' | 'consumption' | 'stations' | 'alerts' | 'settings'
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('financial')
@@ -67,12 +70,22 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-md mx-auto pb-24">
+      <main className="max-w-md mx-auto pb-24 px-4 space-y-6">
         {activeTab === 'financial' && <FinancialControl />}
         {activeTab === 'parts' && <PartsGallery />}
         {activeTab === 'consumption' && <ConsumptionMonitor />}
         {activeTab === 'stations' && <GasStationRating />}
+        {activeTab === 'alerts' && <AlertsMap />}
+        {activeTab === 'settings' && (
+          <div className="space-y-6 py-6">
+            <h2 className="text-2xl font-bold">Configurações</h2>
+            <TelegramConnect />
+          </div>
+        )}
       </main>
+
+      {/* Botão flutuante para reportar alertas */}
+      <AlertReporter />
 
       {/* Navigation */}
       <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
