@@ -16,20 +16,20 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
   ]
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 backdrop-blur-md bg-slate-950/90 border-t border-cyan-500/20 shadow-2xl max-w-md mx-auto">
-      <div className="flex items-center justify-around h-20 px-2 overflow-x-auto">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg max-w-md mx-auto">
+      <div className="flex items-center justify-around h-20 px-2">
         {tabs.map(tab => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex flex-col items-center justify-center flex-1 h-full gap-1 rounded-lg transition-all duration-300 min-w-fit px-2 ${
+            className={`flex flex-col items-center justify-center flex-1 h-full gap-1 rounded-lg transition ${
               activeTab === tab.id
-                ? 'text-cyan-400 bg-gradient-to-b from-cyan-500/20 to-transparent border-t-2 border-cyan-500 shadow-lg shadow-cyan-500/30'
-                : 'text-gray-400 hover:text-lime-400 hover:bg-lime-500/10'
+                ? 'text-blue-600 bg-blue-50'
+                : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             <span className="text-2xl">{tab.icon}</span>
-            <span className="text-xs font-bold">{tab.label}</span>
+            <span className="text-xs font-medium">{tab.label}</span>
           </button>
         ))}
       </div>
