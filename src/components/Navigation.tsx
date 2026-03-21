@@ -1,4 +1,4 @@
-type Tab = 'financial' | 'parts' | 'consumption' | 'stations' | 'alerts' | 'settings'
+type Tab = 'financial' | 'parts' | 'consumption' | 'stations'
 
 interface NavigationProps {
   activeTab: Tab
@@ -9,10 +9,8 @@ export default function Navigation({ activeTab, onTabChange }: NavigationProps) 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: 'financial', label: 'Finanças', icon: '💰' },
     { id: 'parts', label: 'Peças', icon: '🔧' },
-    { id: 'alerts', label: 'Alertas', icon: '🗺️' },
     { id: 'consumption', label: 'Consumo', icon: '⛽' },
-    { id: 'stations', label: 'Postos', icon: '🏪' },
-    { id: 'settings', label: 'Config', icon: '⚙️' }
+    { id: 'stations', label: 'Postos', icon: '🏪' }
   ]
 
   return (

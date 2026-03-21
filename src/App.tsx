@@ -9,7 +9,7 @@ import TelegramConnect from './components/TelegramConnect'
 import AlertReporter from './components/AlertReporter'
 import AlertsMap from './components/AlertsMap'
 
-type Tab = 'financial' | 'parts' | 'consumption' | 'stations' | 'alerts' | 'settings'
+type Tab = 'financial' | 'parts' | 'consumption' | 'stations'
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('financial')
@@ -75,13 +75,6 @@ function App() {
         {activeTab === 'parts' && <PartsGallery />}
         {activeTab === 'consumption' && <ConsumptionMonitor />}
         {activeTab === 'stations' && <GasStationRating />}
-        {activeTab === 'alerts' && <AlertsMap />}
-        {activeTab === 'settings' && (
-          <div className="space-y-4 py-4">
-            <h2 className="text-2xl font-bold text-gray-900">Configurações</h2>
-            <TelegramConnect />
-          </div>
-        )}
       </main>
 
       {/* Botão flutuante para reportar alertas */}
